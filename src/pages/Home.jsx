@@ -29,8 +29,18 @@ export default function Home() {
           prin Parlament. Aici le găsești pe toate — date oficiale, fără adjective, fără comentarii.
         </p>
         <div className="flex flex-wrap gap-3 mt-10">
-          <a href="#clasament" className="chip hover:bg-ink hover:text-paper transition-colors">Vezi clasamentul ↓</a>
-          <a href="#timeline" className="chip hover:bg-ink hover:text-paper transition-colors">Vezi toate alegerile ↓</a>
+          <button
+            onClick={() => document.getElementById('clasament')?.scrollIntoView({ behavior: 'smooth' })}
+            className="chip hover:bg-ink hover:text-paper transition-colors cursor-pointer"
+          >
+            Vezi clasamentul ↓
+          </button>
+          <button
+            onClick={() => document.getElementById('timeline')?.scrollIntoView({ behavior: 'smooth' })}
+            className="chip hover:bg-ink hover:text-paper transition-colors cursor-pointer"
+          >
+            Vezi toate alegerile ↓
+          </button>
         </div>
       </section>
 
