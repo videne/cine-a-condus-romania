@@ -443,12 +443,12 @@ export const PARTY_LINEAGE = {
   FDSN: 'FSN_PSD',
   PDSR: 'FSN_PSD',
   PSD: 'FSN_PSD',
-  PD: 'PD_PDL',
-  PDL: 'PD_PDL',
+  PD: 'PNL',       // PD → PDL → absorbit in PNL in 2014
+  PDL: 'PNL',      // PDL → absorbit in PNL in 2014
   PNL: 'PNL',
   CDR: 'PNTCD_CDR',
   PNTCD: 'PNTCD_CDR',
-  ALIANTA_DA: 'PNL', // alianta PNL-PD, tratata ca PNL in lineage
+  ALIANTA_DA: 'PNL', // alianta PNL-PD din 2004, logic in lineage-ul PNL
   UDMR: 'UDMR',
   USR: 'USR',
   USR_PLUS: 'USR',
@@ -457,7 +457,7 @@ export const PARTY_LINEAGE = {
   PUNR: 'PUNR',
   PSM: 'PSM',
   PDAR: 'PDAR',
-  USD: 'PD_PDL',
+  USD: 'PNL',      // USD = alianta PD + PSDR in 1996, in lineage-ul PD → PNL
   PUR: 'PC',
   PC: 'PC',
   ALDE: 'ALDE',
@@ -468,8 +468,7 @@ export const PARTY_LINEAGE = {
 
 export const LINEAGE_NAMES = {
   FSN_PSD: { name: 'FSN / FDSN / PDSR / PSD', short: 'PSD (și precursori)', color: '#B22222' },
-  PD_PDL: { name: 'PD / PDL', short: 'PD/PDL', color: '#E97C1E' },
-  PNL: { name: 'PNL', short: 'PNL', color: '#F7D417' },
+  PNL: { name: 'PNL (și PD / PDL, fuzionate în 2014)', short: 'PNL (și PD/PDL)', color: '#F7D417' },
   PNTCD_CDR: { name: 'PNȚCD / CDR', short: 'PNȚCD/CDR', color: '#1B5E3F' },
   UDMR: { name: 'UDMR', short: 'UDMR', color: '#2E7D32' },
   USR: { name: 'USR (și USR PLUS)', short: 'USR', color: '#1976D2' },
@@ -498,18 +497,18 @@ export const YEARS_AS_PM = {
   // Ponta (PSD): mai 2012 - nov 2015 (~3.5 ani)
   // Grindeanu/Tudose/Dancila (PSD): ian 2017 - nov 2019 (~2.8 ani)
   // Ciolacu (PSD): iun 2023 - iun 2025 (~2 ani)
-  PNL: 8,
+  PNL: 12,
+  // ====== PNL direct ======
   // Tariceanu (PNL): dec 2004 - dec 2008 (4 ani)
   // Orban (PNL): nov 2019 - dec 2020 (~1 an)
   // Citu (PNL): dec 2020 - nov 2021 (~1 an)
   // Ciuca (PNL): nov 2021 - iun 2023 (~1.5 ani)
   // Bolojan (PNL): iun 2025 - prezent (~0.8 ani la apr 2026)
+  // ====== PD/PDL (fuzionati in PNL in 2014) ======
+  // Boc (PD/PDL): dec 2008 - feb 2012 (~3.2 ani)
+  // MRU (PDL): feb - mai 2012 (~0.3 ani)
   PNTCD_CDR: 2,
   // Ciorbea (PNTCD): dec 1996 - apr 1998 (~1.3 ani)
   // Radu Vasile (PNTCD): apr 1998 - dec 1999 (~1.7 ani)
   // Isarescu (1999-2000) era independent, nu se numara
-  PD_PDL: 4,
-  // Boc (PD/PDL): dec 2008 - feb 2012 (~3.2 ani)
-  // MRU (PDL): feb - mai 2012 (~0.3 ani)
-  // Petre Roman post-1993 a fost PD, dar PM-ul lui fusese FSN
 };
