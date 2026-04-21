@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import ElectionPage from './pages/ElectionPage';
@@ -23,22 +24,32 @@ export default function App() {
 
 function Header() {
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const links = [
     { to: '/', label: 'Acasă' },
     { to: '/partide', label: 'Partide' },
     { to: '/compara', label: 'Comparare' },
   ];
 
+  const BMC_URL = 'https://www.buymeacoffee.com/2AQsWGnJNC';
+
+  // Inchide meniul la schimbarea de ruta
+  const handleNavClick = () => setMenuOpen(false);
+
   return (
-    <header className="border-b border-rule bg-paper/80 backdrop-blur sticky top-0 z-40">
-      <div className="container-editorial py-4 sm:py-5 flex items-center justify-between gap-4">
-        <Link to="/" className="group">
-          <div className="kicker mb-0.5">România · 1990 — 2024</div>
-          <div className="font-display text-lg sm:text-xl font-semibold leading-none">
+    <header className="border-b border-rule bg-paper/90 backdrop-blur sticky top-0 z-40">
+      <div className="container-editorial py-3 sm:py-5 flex items-center justify-between gap-3">
+        {/* Logo / titlu */}
+        <Link to="/" onClick={handleNavClick} className="group min-w-0 flex-1 sm:flex-initial">
+          <div className="kicker mb-0.5 truncate">România · 1990 — 2024</div>
+          <div className="font-display text-base sm:text-xl font-semibold leading-none truncate">
             Cine a condus România?
           </div>
         </Link>
-        <nav className="flex items-center gap-1 sm:gap-2">
+
+        {/* Navigatie desktop */}
+        <nav className="hidden md:flex items-center gap-1 lg:gap-2">
           {links.map(l => {
             const active = location.pathname === l.to;
             return (
@@ -46,9 +57,7 @@ function Header() {
                 key={l.to}
                 to={l.to}
                 className={`px-3 py-2 text-sm transition-colors ${
-                  active
-                    ? 'text-ink font-medium'
-                    : 'text-muted hover:text-ink'
+                  active ? 'text-ink font-medium' : 'text-muted hover:text-ink'
                 }`}
               >
                 {l.label}
@@ -57,22 +66,64 @@ function Header() {
             );
           })}
           <a
-            href="https://www.buymeacoffee.com/2AQsWGnJNC"
+            href={BMC_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 ml-2 px-3 py-1.5 text-sm border border-ink bg-ink text-paper hover:bg-paper hover:text-ink transition-colors"
+            className="inline-flex items-center gap-1.5 ml-2 px-3 py-1.5 text-sm border border-ink bg-ink text-paper hover:bg-paper hover:text-ink transition-colors"
           >
             <span className="text-xs">♥</span>
             Susține proiectul
           </a>
+        </nav>
+
+        {/* Buton hamburger mobile */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden inline-flex items-center justify-center w-10 h-10 border border-rule hover:border-ink transition-colors shrink-0"
+          aria-label={menuOpen ? 'Închide meniul' : 'Deschide meniul'}
+          aria-expanded={menuOpen}
+        >
+          <div className="w-4 flex flex-col gap-1">
+            <span className={`block h-px bg-ink transition-transform ${menuOpen ? 'translate-y-[5px] rotate-45' : ''}`} />
+            <span className={`block h-px bg-ink transition-opacity ${menuOpen ? 'opacity-0' : ''}`} />
+            <span className={`block h-px bg-ink transition-transform ${menuOpen ? '-translate-y-[5px] -rotate-45' : ''}`} />
+          </div>
+        </button>
+      </div>
+
+      {/* Panou mobile - slide down */}
+      <div
+        className={`md:hidden border-t border-rule overflow-hidden transition-[max-height,opacity] duration-300 ${
+          menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <nav className="container-editorial py-4 flex flex-col gap-1">
+          {links.map(l => {
+            const active = location.pathname === l.to;
+            return (
+              <Link
+                key={l.to}
+                to={l.to}
+                onClick={handleNavClick}
+                className={`px-3 py-3 text-base border-l-2 transition-colors ${
+                  active
+                    ? 'border-ink text-ink font-medium'
+                    : 'border-transparent text-muted hover:text-ink hover:border-rule'
+                }`}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
           <a
-            href="https://www.buymeacoffee.com/2AQsWGnJNC"
+            href={BMC_URL}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Susține proiectul"
-            className="sm:hidden inline-flex items-center justify-center ml-2 w-9 h-9 border border-ink bg-ink text-paper hover:bg-paper hover:text-ink transition-colors"
+            onClick={handleNavClick}
+            className="mt-3 inline-flex items-center justify-center gap-2 px-4 py-3 text-sm border border-ink bg-ink text-paper hover:bg-paper hover:text-ink transition-colors"
           >
-            ♥
+            <span>♥</span>
+            Susține proiectul
           </a>
         </nav>
       </div>
