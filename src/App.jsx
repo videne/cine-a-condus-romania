@@ -56,6 +56,24 @@ function Header() {
               </Link>
             );
           })}
+          <a
+            href="https://www.buymeacoffee.com/2AQsWGnJNC"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center gap-1.5 ml-2 px-3 py-1.5 text-sm border border-ink bg-ink text-paper hover:bg-paper hover:text-ink transition-colors"
+          >
+            <span className="text-xs">♥</span>
+            Susține proiectul
+          </a>
+          <a
+            href="https://www.buymeacoffee.com/2AQsWGnJNC"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Susține proiectul"
+            className="sm:hidden inline-flex items-center justify-center ml-2 w-9 h-9 border border-ink bg-ink text-paper hover:bg-paper hover:text-ink transition-colors"
+          >
+            ♥
+          </a>
         </nav>
       </div>
     </header>
@@ -74,6 +92,20 @@ function Footer() {
           <div className="text-xs font-mono">
             Proiect neutru politic · Doar cifre · Fără comentarii.
           </div>
+        </div>
+        <div className="mt-8 pt-6 border-t border-rule flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs">
+          <div className="text-muted">
+            Proiectul este gratuit și fără reclame.
+          </div>
+          <a
+            href="https://www.buymeacoffee.com/2AQsWGnJNC"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-ink hover:text-accent transition-colors font-medium"
+          >
+            <span>♥</span>
+            Susține proiectul pe Buy Me a Coffee →
+          </a>
         </div>
       </div>
     </footer>
