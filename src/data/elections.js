@@ -190,7 +190,7 @@ export const PARTIES = {
     short: 'USR',
     color: '#1976D2',
     exists: true,
-    description: 'Partid reformist fondat în 2016 de Nicușor Dan, ca extensie națională a USB. A intrat în Parlament la prima candidatură.',
+    description: 'Partid reformist fondat în 2016, pornind de la USB (Uniunea Salvați Bucureștiul) a lui Nicușor Dan. A intrat în Parlament la prima candidatură. În 2019 a format alianța USR PLUS împreună cu partidul PLUS al lui Dacian Cioloș; în 2021 cele două partide au fuzionat oficial, păstrând numele USR.',
     founded: 2016,
   },
   PMP: {
@@ -217,7 +217,7 @@ export const PARTIES = {
     short: 'USR PLUS',
     color: '#1976D2',
     exists: false,
-    description: 'Alianță electorală între USR și PLUS (Dacian Cioloș) la alegerile din 2020. S-a transformat în partid unic în 2021.',
+    description: 'Alianță electorală între USR (partidul existent din 2016) și PLUS (partidul lui Dacian Cioloș, fondat în 2018). Au candidat împreună la alegerile parlamentare din 2020. În 2021 cele două formațiuni au fuzionat într-un singur partid, păstrând denumirea USR.',
     founded: 2019,
     dissolved: 2021,
   },
