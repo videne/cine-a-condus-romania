@@ -6,7 +6,7 @@ import { useState, useMemo } from 'react';
 // - Europenism: 0 (anti-UE, suveranist) -> 10 (puternic pro-UE)
 const PARTIES_2024 = [
   { id: 'PSD',  name: 'Partidul Social Democrat',           short: 'PSD',   pct: 21.96, color: '#B22222', econ: 3, eu: 8 },
-  { id: 'AUR',  name: 'Alianța pentru Unirea Românilor',    short: 'AUR',   pct: 18.01, color: '#FFC107', econ: 4, eu: 2 },
+  { id: 'AUR',  name: 'Alianța pentru Unirea Românilor',    short: 'AUR',   pct: 18.01, color: '#8B6914', econ: 4, eu: 2 },
   { id: 'PNL',  name: 'Partidul Național Liberal',          short: 'PNL',   pct: 13.20, color: '#F7D417', econ: 7, eu: 9 },
   { id: 'USR',  name: 'Uniunea Salvați România',            short: 'USR',   pct: 12.40, color: '#1976D2', econ: 7, eu: 10 },
   { id: 'SOS',  name: 'S.O.S. România',                     short: 'SOS',   pct: 7.35,  color: '#D32F2F', econ: 3, eu: 1 },

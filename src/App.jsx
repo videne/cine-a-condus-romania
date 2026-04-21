@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import ElectionPage from './pages/ElectionPage';
@@ -6,9 +6,21 @@ import PartiesPage from './pages/PartiesPage';
 import ComparePage from './pages/ComparePage';
 import GamePage from './pages/GamePage';
 
+// Reseteaza scroll-ul la schimbarea de ruta.
+// Fara asta, React Router pastreaza pozitia scroll-ului de pe pagina anterioara
+// si utilizatorul ajunge in mijlocul/jos-ul paginii noi.
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
+      <ScrollToTop />
       <Header />
       <main className="flex-1">
         <Routes>
