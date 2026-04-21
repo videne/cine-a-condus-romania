@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+    background-image:
+      radial-gradient(rgba(26, 25, 21, 0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .container-editorial {
+    @apply max-w-6xl mx-auto px-5 sm:px-8;
+  }
+  .rule {
+    @apply border-t border-rule;
+  }
+  .kicker {
+    @apply text-xs font-mono tracking-[0.2em] uppercase text-muted;
+  }
+  .link-underline {
+    @apply underline underline-offset-4 decoration-rule hover:decoration-ink transition-colors;
+  }
+  .chip {
+    @apply inline-flex items-center gap-2 px-3 py-1 text-xs font-mono tracking-wide rounded-full border border-rule bg-paper;
+  }
+}
