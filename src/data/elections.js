@@ -485,15 +485,31 @@ export const LINEAGE_NAMES = {
   POT: { name: 'POT', short: 'POT', color: '#00796B' },
 };
 
-// Ani la guvernare pe lineage (aproximativ, pe baza guvernelor formate dupa fiecare scrutin)
-// Calculat pana la 21 aprilie 2026.
-export const YEARS_IN_POWER = {
-  FSN_PSD: 16,   // 1990-1996 (6), 2000-2004 (4), 2012-2015 (3), 2017-2019 (2), 2023-prezent (~2.5)
-  PNL: 10,       // 1996-2000 in CDR (4), 2004-2008 in D.A. (4), 2019-2023 (~4), 2025-prezent
-  PNTCD_CDR: 4,  // 1996-2000
-  PD_PDL: 9,     // 2004-2008 in D.A., 2008-2012 (4)
-  UDMR: 18,      // partener de guvernare aproape constant dupa 1996
-  USR: 2,        // 2020-2021 (USR PLUS), 2024-prezent
-  ALDE: 3,       // 2016-2019
-  PC: 4,         // 2004-2008 in coalitie
+// Ani in care lineage-ul a dat PRIM-MINISTRU (nu ani in coalitie).
+// Calculat pana la 21 aprilie 2026, excluzand interimatele foarte scurte si tehnocratii
+// independenti (Stolojan 1991, Isarescu 1999-2000, Ciolos 2015-2016, Ciuca inainte de
+// a se inscrie in PNL etc).
+// Sursa: Wikipedia - Lista prim-ministrilor Romaniei.
+export const YEARS_AS_PM = {
+  FSN_PSD: 17,
+  // Roman (FSN): dec 1989 - sep 1991 (~1.8 ani)
+  // Vacaroiu (sustinut FDSN/PDSR): nov 1992 - dec 1996 (~4 ani)
+  // Nastase (PSD): dec 2000 - dec 2004 (4 ani)
+  // Ponta (PSD): mai 2012 - nov 2015 (~3.5 ani)
+  // Grindeanu/Tudose/Dancila (PSD): ian 2017 - nov 2019 (~2.8 ani)
+  // Ciolacu (PSD): iun 2023 - iun 2025 (~2 ani)
+  PNL: 8,
+  // Tariceanu (PNL): dec 2004 - dec 2008 (4 ani)
+  // Orban (PNL): nov 2019 - dec 2020 (~1 an)
+  // Citu (PNL): dec 2020 - nov 2021 (~1 an)
+  // Ciuca (PNL): nov 2021 - iun 2023 (~1.5 ani)
+  // Bolojan (PNL): iun 2025 - prezent (~0.8 ani la apr 2026)
+  PNTCD_CDR: 2,
+  // Ciorbea (PNTCD): dec 1996 - apr 1998 (~1.3 ani)
+  // Radu Vasile (PNTCD): apr 1998 - dec 1999 (~1.7 ani)
+  // Isarescu (1999-2000) era independent, nu se numara
+  PD_PDL: 4,
+  // Boc (PD/PDL): dec 2008 - feb 2012 (~3.2 ani)
+  // MRU (PDL): feb - mai 2012 (~0.3 ani)
+  // Petre Roman post-1993 a fost PD, dar PM-ul lui fusese FSN
 };

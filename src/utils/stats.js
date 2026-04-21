@@ -1,4 +1,4 @@
-import { ELECTIONS, PARTY_LINEAGE, LINEAGE_NAMES, YEARS_IN_POWER, PARTIES } from '../data/elections';
+import { ELECTIONS, PARTY_LINEAGE, LINEAGE_NAMES, YEARS_AS_PM, PARTIES } from '../data/elections';
 
 // Agregheaza rezultatele pe "lineage" (grupuri de continuitate)
 export function getLineageRanking() {
@@ -12,14 +12,14 @@ export function getLineageRanking() {
         map[lineage] = {
           lineage,
           ...LINEAGE_NAMES[lineage],
-          totalPct: 0,
+          cumulativePct: 0,
           elections: 0,
           wins: 0,
           bestResult: { pct: 0, year: null },
           appearances: [],
         };
       }
-      map[lineage].totalPct += r.pct;
+      map[lineage].cumulativePct += r.pct;
       map[lineage].elections += 1;
       map[lineage].appearances.push({ year: election.year, pct: r.pct, seats: r.seats });
       if (r.pct > map[lineage].bestResult.pct) {
@@ -40,9 +40,9 @@ export function getLineageRanking() {
 
   return Object.values(map).map(l => ({
     ...l,
-    avgPct: l.elections > 0 ? l.totalPct / l.elections : 0,
-    yearsInPower: YEARS_IN_POWER[l.lineage] || 0,
-  })).sort((a, b) => b.yearsInPower - a.yearsInPower || b.avgPct - a.avgPct);
+    avgPct: l.elections > 0 ? l.cumulativePct / l.elections : 0,
+    yearsAsPM: YEARS_AS_PM[l.lineage] || 0,
+  })).sort((a, b) => b.cumulativePct - a.cumulativePct);
 }
 
 export function getPartyById(id) {

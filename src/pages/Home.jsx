@@ -5,13 +5,13 @@ import { getLineageRanking } from '../utils/stats';
 
 export default function Home() {
   const ranking = useMemo(() => getLineageRanking(), []);
-  const [sortBy, setSortBy] = useState('yearsInPower');
+  const [sortBy, setSortBy] = useState('cumulativePct');
 
   const sortedRanking = useMemo(() => {
     const copy = [...ranking];
-    if (sortBy === 'yearsInPower') copy.sort((a, b) => b.yearsInPower - a.yearsInPower);
-    if (sortBy === 'avgPct') copy.sort((a, b) => b.avgPct - a.avgPct);
-    if (sortBy === 'wins') copy.sort((a, b) => b.wins - a.wins);
+    if (sortBy === 'cumulativePct') copy.sort((a, b) => b.cumulativePct - a.cumulativePct);
+    if (sortBy === 'yearsAsPM') copy.sort((a, b) => b.yearsAsPM - a.yearsAsPM || b.cumulativePct - a.cumulativePct);
+    if (sortBy === 'wins') copy.sort((a, b) => b.wins - a.wins || b.cumulativePct - a.cumulativePct);
     return copy.slice(0, 8);
   }, [ranking, sortBy]);
 
@@ -56,17 +56,24 @@ export default function Home() {
           <p className="font-serif text-lg text-ink/80 leading-relaxed">
             Pentru a reflecta continuitatea politică reală, partidele care au fuzionat sau și-au
             schimbat numele (de exemplu FSN → FDSN → PDSR → PSD) sunt grupate împreună.
+            <br/><br/>
+            <span className="text-ink/60 text-base">
+              <strong>Procent acumulat</strong> adună toate procentele obținute la toate alegerile — un partid care a
+              luat 25% la 8 alegeri va fi deasupra unuia care a luat 30% la 2 alegeri.
+              <strong> Ani ca prim-ministru</strong> numără doar perioadele efective de guvernare
+              (nu participarea ca partener minor în coaliție).
+            </span>
           </p>
         </div>
 
         {/* filters */}
         <div className="flex flex-wrap items-center gap-2 mb-8">
           <span className="kicker mr-2">Sortează după:</span>
-          <FilterBtn active={sortBy === 'yearsInPower'} onClick={() => setSortBy('yearsInPower')}>
-            Ani la guvernare
+          <FilterBtn active={sortBy === 'cumulativePct'} onClick={() => setSortBy('cumulativePct')}>
+            Procent acumulat
           </FilterBtn>
-          <FilterBtn active={sortBy === 'avgPct'} onClick={() => setSortBy('avgPct')}>
-            Procent mediu
+          <FilterBtn active={sortBy === 'yearsAsPM'} onClick={() => setSortBy('yearsAsPM')}>
+            Ani ca prim-ministru
           </FilterBtn>
           <FilterBtn active={sortBy === 'wins'} onClick={() => setSortBy('wins')}>
             Alegeri câștigate
@@ -77,9 +84,9 @@ export default function Home() {
         <div className="space-y-3">
           {sortedRanking.map((item, idx) => (
             <RankingRow key={item.lineage} item={item} rank={idx + 1} sortBy={sortBy} maxValue={
-              sortBy === 'yearsInPower' ? Math.max(...sortedRanking.map(s => s.yearsInPower)) :
-              sortBy === 'avgPct' ? Math.max(...sortedRanking.map(s => s.avgPct)) :
-              Math.max(...sortedRanking.map(s => s.wins))
+              sortBy === 'cumulativePct' ? Math.max(...sortedRanking.map(s => s.cumulativePct)) :
+              sortBy === 'yearsAsPM' ? Math.max(...sortedRanking.map(s => s.yearsAsPM), 1) :
+              Math.max(...sortedRanking.map(s => s.wins), 1)
             } />
           ))}
         </div>
@@ -149,14 +156,14 @@ function FilterBtn({ active, onClick, children }) {
 
 function RankingRow({ item, rank, sortBy, maxValue }) {
   const value =
-    sortBy === 'yearsInPower' ? item.yearsInPower :
-    sortBy === 'avgPct' ? item.avgPct :
+    sortBy === 'cumulativePct' ? item.cumulativePct :
+    sortBy === 'yearsAsPM' ? item.yearsAsPM :
     item.wins;
   const display =
-    sortBy === 'yearsInPower' ? `${item.yearsInPower} ani` :
-    sortBy === 'avgPct' ? `${item.avgPct.toFixed(1)}%` :
+    sortBy === 'cumulativePct' ? `${item.cumulativePct.toFixed(0)} pct.` :
+    sortBy === 'yearsAsPM' ? (item.yearsAsPM === 0 ? '—' : `${item.yearsAsPM} ani`) :
     `${item.wins} ${item.wins === 1 ? 'victorie' : 'victorii'}`;
-  const width = (value / maxValue) * 100;
+  const width = maxValue > 0 ? (value / maxValue) * 100 : 0;
 
   return (
     <div className="group relative overflow-hidden border border-rule bg-paper hover:border-ink transition-colors">
@@ -173,7 +180,7 @@ function RankingRow({ item, rank, sortBy, maxValue }) {
         <div className="flex-1 min-w-0">
           <div className="font-display text-lg sm:text-xl font-semibold truncate">{item.name}</div>
           <div className="text-xs text-muted font-mono mt-0.5">
-            {item.elections} alegeri · procent mediu {item.avgPct.toFixed(1)}% · cel mai bun rezultat: {item.bestResult.pct.toFixed(1)}% ({item.bestResult.year})
+            {item.elections} alegeri · cel mai bun rezultat: {item.bestResult.pct.toFixed(1)}% ({item.bestResult.year})
           </div>
         </div>
         <div className="text-right shrink-0">
