@@ -259,7 +259,7 @@ export const ELECTIONS = [
     electoralThreshold: null,
     description: 'Primele alegeri libere după căderea comunismului, supranumite "Duminica orbului". FSN a câștigat detașat, cu un procent de peste 66%.',
     winnerCoalition: 'FSN (majoritate absolută)',
-    primeMinister: 'Petre Roman (FSN)',
+    primeMinister: 'Petre Roman (FSN, iun 1990 – sep 1991), apoi Theodor Stolojan (independent / FSN, oct 1991 – nov 1992)',
     results: [
       { partyId: 'FSN', pct: 66.31, seats: 355 },
       { partyId: 'UDMR', pct: 7.23, seats: 41 },
@@ -276,7 +276,7 @@ export const ELECTIONS = [
     electoralThreshold: 3,
     description: 'Primele alegeri după scindarea FSN. FDSN (Iliescu) a câștigat alegerile, iar opoziția democrată s-a coagulat în jurul CDR.',
     winnerCoalition: 'FDSN (guvern minoritar, sprijinit de PUNR, PRM, PSM)',
-    primeMinister: 'Nicolae Văcăroiu (independent, susținut de FDSN)',
+    primeMinister: 'Nicolae Văcăroiu (independent, susținut de FDSN/PDSR, nov 1992 – dec 1996)',
     results: [
       { partyId: 'FDSN', pct: 27.72, seats: 166 },
       { partyId: 'CDR', pct: 20.01, seats: 116 },
@@ -297,7 +297,7 @@ export const ELECTIONS = [
     electoralThreshold: 3,
     description: 'Prima schimbare majoră de putere după 1989. CDR a câștigat alegerile și a format guvernul cu USD și UDMR.',
     winnerCoalition: 'CDR + USD + UDMR',
-    primeMinister: 'Victor Ciorbea (PNȚCD), apoi Radu Vasile (1998), apoi Mugur Isărescu (1999)',
+    primeMinister: 'Victor Ciorbea (PNȚCD, dec 1996 – apr 1998) · Radu Vasile (PNȚCD, apr 1998 – dec 1999) · Mugur Isărescu (independent, dec 1999 – dec 2000)',
     results: [
       { partyId: 'CDR', pct: 30.17, seats: 175 },
       { partyId: 'PDSR', pct: 21.52, seats: 132 },
@@ -316,7 +316,7 @@ export const ELECTIONS = [
     electoralThreshold: 5,
     description: 'Alegeri marcate de criza guvernării CDR. PDSR a revenit detașat la putere, iar PRM a devenit al doilea partid, într-un moment de cotitură în istoria parlamentarismului.',
     winnerCoalition: 'PDSR (guvern minoritar, sprijinit de PUR și UDMR)',
-    primeMinister: 'Adrian Năstase (PDSR/PSD)',
+    primeMinister: 'Adrian Năstase (PDSR/PSD, dec 2000 – dec 2004)',
     results: [
       { partyId: 'PDSR', pct: 36.61, seats: 220 },
       { partyId: 'PRM', pct: 19.48, seats: 131 },
@@ -334,7 +334,7 @@ export const ELECTIONS = [
     electoralThreshold: 5,
     description: 'Uniunea PSD+PUR a câștigat la limită alegerile parlamentare, dar Alianța D.A. (PNL-PD) a preluat guvernarea după ce Traian Băsescu a câștigat prezidențialele.',
     winnerCoalition: 'Alianța D.A. (PNL-PD) + UDMR + PUR',
-    primeMinister: 'Călin Popescu-Tăriceanu (PNL)',
+    primeMinister: 'Călin Popescu-Tăriceanu (PNL, dec 2004 – dec 2008)',
     results: [
       { partyId: 'PSD', pct: 36.80, seats: 190 },
       { partyId: 'ALIANTA_DA', pct: 31.49, seats: 161 },
@@ -352,7 +352,7 @@ export const ELECTIONS = [
     electoralThreshold: 5,
     description: 'Primele alegeri cu sistem uninominal. PDL a câștigat la limită, dar a format guvernul în coaliție cu PSD, apoi cu UDMR.',
     winnerCoalition: 'PDL + PSD (până în oct. 2009), apoi PDL + UDMR + UNPR',
-    primeMinister: 'Emil Boc (PDL)',
+    primeMinister: 'Emil Boc (PD/PDL, dec 2008 – feb 2012) · Mihai Răzvan Ungureanu (PDL, feb – mai 2012) · Victor Ponta (USL, mai – dec 2012)',
     results: [
       { partyId: 'PDL', pct: 32.36, seats: 166 },
       { partyId: 'PSD', pct: 33.09, seats: 163 },
@@ -369,7 +369,7 @@ export const ELECTIONS = [
     electoralThreshold: 5,
     description: 'USL (PSD + PNL + PC) a câștigat detașat, pe fondul conflictului cu președintele Băsescu și al suspendării sale din vară.',
     winnerCoalition: 'USL (PSD + PNL + PC + UNPR)',
-    primeMinister: 'Victor Ponta (PSD)',
+    primeMinister: 'Victor Ponta (PSD, dec 2012 – nov 2015) · Dacian Cioloș (independent, guvern tehnocrat, nov 2015 – ian 2017)',
     results: [
       { partyId: 'PSD', pct: 58.63, seats: 395 },
       { partyId: 'PDL', pct: 16.52, seats: 80 },
@@ -385,7 +385,7 @@ export const ELECTIONS = [
     electoralThreshold: 5,
     description: 'Revenire la sistemul pe liste. PSD a câștigat detașat și a format guvernul cu ALDE.',
     winnerCoalition: 'PSD + ALDE',
-    primeMinister: 'Sorin Grindeanu, apoi Mihai Tudose, apoi Viorica Dăncilă (toți PSD)',
+    primeMinister: 'Sorin Grindeanu (PSD, ian – iun 2017) · Mihai Tudose (PSD, iun 2017 – ian 2018) · Viorica Dăncilă (PSD, ian 2018 – nov 2019)',
     results: [
       { partyId: 'PSD', pct: 45.48, seats: 221 },
       { partyId: 'PNL', pct: 20.04, seats: 99 },
@@ -403,8 +403,8 @@ export const ELECTIONS = [
     totalSeats: 465,
     electoralThreshold: 5,
     description: 'Alegeri desfășurate în plină pandemie COVID-19. Cea mai scăzută prezență la vot din istoria post-1989. AUR a intrat surprinzător în Parlament.',
-    winnerCoalition: 'PNL + USR PLUS + UDMR',
-    primeMinister: 'Florin Cîțu (PNL), apoi Nicolae Ciucă (2021)',
+    winnerCoalition: 'PNL + USR PLUS + UDMR (dec 2020 – sep 2021) · PNL + UDMR minoritar (oct – nov 2021) · PNL + PSD + UDMR, "coaliția de largă majoritate" (nov 2021 – iun 2023) · PSD + PNL + UDMR, cu rotativă (iun 2023 – iun 2025)',
+    primeMinister: 'Florin Cîțu (PNL, dec 2020 – nov 2021) · Nicolae Ciucă (PNL, nov 2021 – iun 2023) · Marcel Ciolacu (PSD, iun 2023 – iun 2025)',
     results: [
       { partyId: 'PSD', pct: 28.90, seats: 157 },
       { partyId: 'PNL', pct: 25.18, seats: 139 },
@@ -412,7 +412,7 @@ export const ELECTIONS = [
       { partyId: 'AUR', pct: 9.08, seats: 47 },
       { partyId: 'UDMR', pct: 5.74, seats: 30 },
     ],
-    note: 'Prezența la vot: 31,95%, cea mai mică din istorie. AUR a intrat pentru prima dată, cu 9%.',
+    note: 'Prezența la vot: 31,95%, cea mai mică din istorie. AUR a intrat pentru prima dată, cu 9%. Legislatura 2020–2024 a fost una foarte instabilă: USR PLUS a părăsit guvernul după ~9 luni (sep 2021), iar în noiembrie 2021 PSD și PNL — rivali istorici — au format împreună „coaliția de largă majoritate", cu rotativă pe postul de premier.',
   },
   {
     year: 2024,
@@ -421,8 +421,8 @@ export const ELECTIONS = [
     totalSeats: 466,
     electoralThreshold: 5,
     description: 'Alegeri dominate de criza politică după anularea primului tur al prezidențialelor. Șapte partide au intrat în Parlament, inclusiv două nou-apărute (SOS, POT). Creștere puternică a partidelor suveraniste.',
-    winnerCoalition: 'PSD + PNL + USR + UDMR (coaliție pro-UE)',
-    primeMinister: 'Marcel Ciolacu (PSD), apoi Ilie Bolojan (PNL, 2025)',
+    winnerCoalition: 'PSD + PNL + USR + UDMR (coaliție pro-UE, formată dec 2024)',
+    primeMinister: 'Marcel Ciolacu (PSD, dec 2024 – iun 2025) · Ilie Bolojan (PNL, iun 2025 – prezent)',
     results: [
       { partyId: 'PSD', pct: 21.96, seats: 108 },
       { partyId: 'AUR', pct: 18.01, seats: 89 },
