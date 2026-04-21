@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import ElectionPage from './pages/ElectionPage';
 import PartiesPage from './pages/PartiesPage';
 import ComparePage from './pages/ComparePage';
+import GamePage from './pages/GamePage';
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="/an/:year" element={<ElectionPage />} />
           <Route path="/partide" element={<PartiesPage />} />
           <Route path="/compara" element={<ComparePage />} />
+          <Route path="/coalitie" element={<GamePage />} />
         </Routes>
       </main>
       <Footer />
@@ -30,6 +32,7 @@ function Header() {
     { to: '/', label: 'Acasă' },
     { to: '/partide', label: 'Partide' },
     { to: '/compara', label: 'Comparare' },
+    { to: '/coalitie', label: 'Joc' },
   ];
 
   const BMC_URL = 'https://www.buymeacoffee.com/2AQsWGnJNC';
